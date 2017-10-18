@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for i in $@
+do
+	printf "%d=0x%x\n" $i $i
+done
