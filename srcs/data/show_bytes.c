@@ -29,7 +29,13 @@ void show_pointer(void *x)
 
 int main()
 {
-	show_int(0x123456);
-	show_float(1.111);
+	int val = 0x87654321;
+	byte_pointer valp = (byte_pointer)&val;
+
+	show_int(12345);
+	show_float(12345.0);
 	show_pointer((void *)0x123456);
+	show_bytes(valp, 1);
+	show_bytes(valp, 2);
+	show_bytes(valp, 3);
 }

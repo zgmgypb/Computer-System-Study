@@ -1,0 +1,10 @@
+练习题2.5 思考下面对 show_bytes 的三次调用:
+int val = 0x87654321;
+byte_pointer valp = (byte_pointer)&val;
+show_bytes(valp, 1); /* A. */
+show_bytes(valp, 2); /* B. */
+show_bytes(valp, 3); /* C. */
+指出在小端机器和大端机器上，每次调用的输出值。
+A. 小端法: 0x21			大端法: 0x87
+B. 小端法: 0x21 0x43		大端法: 0x87 0x65
+C. 小端法: 0x21 0x43 0x65 	大端法: 0x87 0x65 0x43
