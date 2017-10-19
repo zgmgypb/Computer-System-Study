@@ -1,0 +1,6 @@
+练习题2.7 下面对 show_bytes 的调用将输出什么结果？
+const char *s = "abcdef";
+show_bytes((byte_pointer)s, strlen(s));
+注意字母 'a' ~ 'z' 的 ASCII 码为 0x61 ~ 0x7A。
+
+答案：61 62 63 64 65 66
