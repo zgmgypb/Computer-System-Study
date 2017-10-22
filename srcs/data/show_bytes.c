@@ -33,7 +33,22 @@ int main()
 	int val = 0x87654321;
 	byte_pointer valp = (byte_pointer)&val;
 	const char *s = "abcdef";
+	short sx = -12345;
+	unsigned short usx = sx;
+	int x = sx;
+	unsigned int ux = usx;
+	unsigned uy = sx;
 
+	printf("sx = %d:\t", sx);
+	show_bytes((byte_pointer)&sx, sizeof(sx));
+	printf("usx = %d:\t", usx);
+	show_bytes((byte_pointer)&usx, sizeof(usx));
+	printf("x = %d:\t", x);
+	show_bytes((byte_pointer)&x, sizeof(x));
+	printf("ux = %d:\t", ux);
+	show_bytes((byte_pointer)&ux, sizeof(ux));
+	printf("uy = %d:\t", uy);
+	show_bytes((byte_pointer)&uy, sizeof(uy));
 	show_int(12345);
 	show_float(12345.0);
 	show_pointer((void *)0x123456);
