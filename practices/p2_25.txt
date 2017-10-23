@@ -1,0 +1,16 @@
+练习题2.25 考虑下列代码，这段代码试图计算数组 a 中所有元素之和，其中元素的数量由参数 length 给出。
+
+/* WARNING: This is buggy code */
+float sum_elements(float a[], unsigned length) {
+	int i;
+	float result = 0;
+
+	for (i = 0; i <= length - 1; i++) 
+		result += a[i];
+	return result;
+}
+
+    当参数 length 等于 0 时，运行这段代码应该返回 0.0。但实际上，运行时会遇到一个存储器错误。请解释为什么会发生这样的情况，并且说明如何修改代码。
+
+答：由于 length 是无符号数，在 i <= length - 1 这个地方将导致整个表达式隐式转换为无符号运算，如果 length == 0，则 length - 1 将是一个非常大的正整数，而 i = 0，所以将导致循环内表达式执行，而 a 的分配是没有元素的，所以 a[i] 将是应用的无效的地址，故报存储器错误。
+修改的方法有两个，1) 将 i <= length -1 修改为 i < length。2) 将 length 类型修改为 int，由于 i 也是有符号数，不会导致表达式的转，结果也会是对的。

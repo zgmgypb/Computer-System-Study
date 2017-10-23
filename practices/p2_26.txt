@@ -1,0 +1,20 @@
+练习题2.26 现在给你一个任务，写一个函数用来判定一个字符串是否比另一个更长。前提是你要用字符串库函数 strlen,它的声明如下：
+
+/* Prototype for library function strlen */
+size_t strlen(const char *s);
+
+最开始你写的函数是这样的：
+
+/* Determine whether string s is longer than string t */
+/* WARING: This function is buggy */
+int strlonger(char *s, char *t) {
+	return strlen(s) - strlen(t) > 0;
+}
+
+当你在一些示例数据上测试这个函数时，一切似乎都是正确的。进一步研究发现在头文件 stdio.h 中数据类型 size_t 是定义成 unsigned int 的。
+A. 在什么情况下，这个函数会产生不正确的结果？
+答：当 s 的长度小于 t 的长度时，会出现不正确的结果。
+B. 解释为什么会出现这样不正确的结果。
+答：因为 strlen 函数的返回值是无符号数，所以表达式中的数据自动扩展为无符号整数类型，当结果相减的结果是负数时，将会导致大的正整数出现，结果就会异常，始终大于 0。
+C. 说明如何修改这段代码好让它能可靠地工作。
+答：将最后一行修改为 return strlen(s) > strlen(t);
