@@ -1,0 +1,19 @@
+练习题2.32 你现在有个任务，编写函数 tsub_ok 的代码，函数的参数是 x 和 y，如果计算 x - y 不产生溢出，函数就返回 1。假设你写的练习题2.30 的代码如下所示：
+
+/* Determint whether arguments can be subtraceted without overflow */
+/* WARNING: This code is buggy. */
+int tsub_ok(int x, int y) {
+	return tadd_ok(x, -y);
+}
+
+x 和 y 取什么值时，这个函数会产生错误的结果？写一个该函数的正确版本（家庭作业 2.74）。
+
+答：y 取值为 INT_MIN 时，-y 将还是 INT_MIN，这时若 x >= 0，函数返回将是不溢出，而实际是溢出的;这时若 x < 0，函数返回将是溢出，而实际是不溢出的。
+修改版本如下：
+
+int tsub_ok(int x, int y) {
+	if (y == INT_MIN) 
+		return x < 0;	
+	else 
+		return tadd_ok(x, -y);
+}

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 #include <string.h>
 
 typedef unsigned char *byte_pointer;

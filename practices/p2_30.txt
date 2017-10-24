@@ -1,0 +1,11 @@
+练习题2.30 写出一个具有如下原型的函数：
+
+/* Determine whether arguments can be added without overflow */
+int tadd_ok(int x, int y);
+
+如果参数 x 和 y 相加不会产生溢出，这个函数返回 1。
+
+int tadd_ok(int x, int y)
+{
+	return ((x < 0) && (x + y < y)) || ((x >= 0) && (x + y >= y));
+}

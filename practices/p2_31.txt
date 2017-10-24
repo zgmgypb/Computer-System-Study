@@ -1,0 +1,13 @@
+练习题2.31 你的同事对你补码加法溢出条件的分析有些不耐烦了，他给出了一个函数 tadd_ok 的实现，如下所示：
+
+/* Determine whether arguments can be added without overflow */
+/* WARING: This code is buggy. */
+int tadd_ok(int x, int y) {
+	int sum = x + y;
+
+	return (sum - x == y) && (sum - y == x);
+}
+
+你看了代码以后笑了。解释一下为什么。
+
+答：这是恒成立的，因为在计算 sum - x 时，如果 sum 是溢出后的值，这里会再次溢出，然后与 y 又相等了。
